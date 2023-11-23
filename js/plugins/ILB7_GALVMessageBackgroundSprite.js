@@ -40,6 +40,7 @@
     Sprite_GalvMsgBg.prototype.controlBitmap = function() {
         if ($gameVariables.value(imageVarId) === disableValue) {
             this.opacity = 0;
+            this.maxopac = 255;
             return;
         }
         baseControlBitmap.call(this);
