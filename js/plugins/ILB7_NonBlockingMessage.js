@@ -10,6 +10,8 @@
  *
  * Plugin Command:
  *   ILB7_NonBlockingMessage text            # Displays message containing "text"
+ *   ILB7_NonBlockingMessagePermanent text   # Displays message containing "text" permanently until closed with the ILB7_NonBlockingMessageClose command
+ *   ILB7_NonBlockingMessageClose            # Closes permanent message
  *   ILB7_NonBlockingMessageXY 10 20 center  # Sets x = 10, y = 20 and align = center (align in optional)
  */
 
@@ -19,6 +21,7 @@
     var _ILB7_x = 0;
     var _ILB7_y = 0;
     var _ILB7_align = 'center';
+    var _ILB7_permanent = false;
 
     //-----------------------------------------------------------------------------
     // ILB7_NonBlockingMessage
@@ -33,6 +36,10 @@
 
     ILB7_NonBlockingMessage.prototype.update = function() {
         Window_Base.prototype.update.call(this);
+        if (_ILB7_permanent) {
+            this.updateFadeIn();
+            return;
+        }
         if (this._showCount > 0) {
             this.updateFadeIn();
             this._showCount--;
@@ -71,6 +78,12 @@
         oldPluginCommand.call(this, command, args);
         switch (command) {
             case 'ILB7_NonBlockingMessage':
+                _ILB7_permanent = false;
+                _ILB7_text = _ILB7_nonBlockingMessage.convertEscapeCharacters(args.join(' '));
+                _ILB7_nonBlockingMessage.open();
+            break;
+            case 'ILB7_NonBlockingMessagePermanent':
+                _ILB7_permanent = true;
                 _ILB7_text = _ILB7_nonBlockingMessage.convertEscapeCharacters(args.join(' '));
                 _ILB7_nonBlockingMessage.open();
             break;
@@ -80,6 +93,10 @@
                 if (args[2]) {
                     _ILB7_align = args[2];
                 }
+            break;
+            case 'ILB7_NonBlockingMessageClose':
+                _ILB7_permanent = false;
+                _ILB7_nonBlockingMessage.close();
             break;
         }
     };
