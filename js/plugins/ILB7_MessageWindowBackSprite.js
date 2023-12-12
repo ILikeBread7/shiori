@@ -22,6 +22,20 @@
  * @desc Y (vertical) position of the image relative to the top left corner of the message window
  * @default 0
  *
+ * @param Add items list backsprite
+ * @desc Adds the backsprite to items list too
+ * OFF - false     ON - true
+ * Default: ON
+ * @default true
+ * 
+ * @param Items image X
+ * @desc X (horizontal) position of the image relative to the top left corner of the items list window
+ * @default 0
+ * 
+ * @param Items image Y
+ * @desc Y (vertical) position of the image relative to the top left corner of the items list window
+ * @default 0
+ * 
  * @help Place the images in /img/system/bgsprite_X.png where X is the value of the variable in Image var ID
  */
 
@@ -32,6 +46,9 @@
     var imageVarId = Number(parameters['Image var ID'] || 1);
     var imageX = Number(parameters['Image X'] || 0);
     var imageY = Number(parameters['Image Y'] || 0);
+    var addItemsBackSprite = JSON.parse(parameters['Add items list backsprite']);
+    var itemsImageX = Number(parameters['Items image X'] || 0);
+    var itemsImageY = Number(parameters['Items image Y'] || 0);
 
     var _image = [];
     var _currentImage = 0;
@@ -68,5 +85,20 @@
         this._ILB7_sprite.visible = false;
         baseTerminateMessage.call(this);
     };
+
+    if (addItemsBackSprite) {
+        var oldItemWindow = Scene_Item.prototype.createItemWindow;
+        Scene_Item.prototype.createItemWindow = function() {
+            oldItemWindow.call(this);
+            var skin = $gameVariables.value(imageVarId);
+            if (skin !== 0) {
+                var sprite = new Sprite();
+                sprite.initialize(_image[skin - 1]);
+                sprite.move(itemsImageX, itemsImageY);
+                this._itemWindow.addChildToBack(sprite);
+                console.log(this._itemWindow)
+            }
+        }
+    }
 
 })();

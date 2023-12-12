@@ -11,11 +11,11 @@
  * @default 2
  * 
  * @param Image X
- * @desc X (horizontal) position of the image relative to the top left corner of the message window
+ * @desc X (horizontal) position of the image relative to the top left corner of the character status window
  * @default 0
  * 
  * @param Image Y
- * @desc Y (vertical) position of the image relative to the top left corner of the message window
+ * @desc Y (vertical) position of the image relative to the top left corner of the character status window
  * @default 0
  *
  * @help This plugin does not provide plugin commands.
@@ -48,7 +48,6 @@
     }
 
     Window_MenuStatus.prototype.drawActorSimpleStatus = function(actor, x, y, width) {
-        console.log(_sprites);
         var lineHeight = this.lineHeight();
         this.drawActorName(actor, x, y, width);
         this.drawActorClass(actor, x, y + lineHeight, width);
