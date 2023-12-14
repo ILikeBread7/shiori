@@ -3,7 +3,7 @@
 //=============================================================================
 
 /*:
- * @plugindesc Removes item categories, leaves only key items
+ * @plugindesc Removes item categories, shows only items in the "items" category
  * @author I_LIKE_BREAD7
  * 
  *
@@ -11,10 +11,6 @@
  */
 
 (function() {
-
-    Window_ItemCategory.prototype.makeCommandList = function() {
-        this.addCommand(TextManager.keyItem, 'keyItem');
-    };
 
     Scene_Item.prototype.createCategoryWindow = function() {
         // empty
@@ -28,7 +24,7 @@
         this._itemWindow.setHandler('ok',     this.onItemOk.bind(this));
         this._itemWindow.setHandler('cancel', this.onItemCancel.bind(this));
         this.addWindow(this._itemWindow);
-        this._itemWindow.setCategory('keyItem');
+        this._itemWindow.setCategory('item');
         this.onCategoryOk();
     };
 
