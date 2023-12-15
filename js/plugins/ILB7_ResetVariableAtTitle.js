@@ -20,8 +20,8 @@
 (function() {
 
     var parameters = PluginManager.parameters('ILB7_ResetVariableAtTitle');
-    var variableId = String(parameters['Variable ID'] || 1);
-    var value = String(parameters['Value'] || 0);
+    var variableId = Number(parameters['Variable ID'] || 1);
+    var value = Number(parameters['Value'] || 0);
 
     var oldCreate = Scene_Title.prototype.create;
     Scene_Title.prototype.create = function() {
