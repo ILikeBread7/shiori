@@ -61,6 +61,7 @@
 
     function init(level) {
         _level = level;
+        _current = 0;
         _left = [];
         _middle = [];
         _right = [];
