@@ -1,3 +1,25 @@
+Stir the soup according to the onscreen directions.
+
+Perform chest compressions by pressing ENTER
+when a heart coming from the right of the screen
+overlaps with the stationary heart on the left
+at a rate of around 100 beats per minute.
+
+Move all stones to the rightmost stand.
+There are only two rules:
+1. You can't put a bigger stone on top of a smaller one.
+2. You can only move one stone at a time.
+
+My brain melted; can I please skip this puzzle?
+
+Press ESC to reset the puzzle or receive a hint.
+
+Continue by moving the third and second stones to the middle stack, using the leftmost stack as temporary storage for the smallest stone.
+
+Continue by moving the biggest stone to the leftmost stack and placing the smallest stone on top of it.
+
+Dialogues
+
 Shiori~n! Shiori Novella here, at your service.
 *stab*
 Aaaaa!!!
@@ -153,7 +175,7 @@ Oh, Shiori~n.
 It’s Shiori! Good thing I just finished my soup bath. Tee hee.
 Hey, Shiori! What’s up?
 Hi, Rissa. Could you come over right now? I will need to ask you a favor once you’re here.
-Mhm. Of course. Anything for my beloved Shiorin!
+Mhm. Of course. Anything for my beloved Shiorin! I will be there in an instant.
 Cool, I’m waiting for you then.
 Love you, baby girl.
 Okay, see ya.
@@ -240,3 +262,4 @@ A feather you received from your oshi with a small engraving on the quill saying
 
 Ollie’s bandage
 A piece of bandage with a handwritten oath from your wife, saying “I promise that I will cheat on you. I will get new wives every single new day.”
+
